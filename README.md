@@ -32,6 +32,10 @@ Critical Misses (False Negatives): The most crucial area for improvement is the 
 
 ⚠️ This highlights that traditional accuracy is not reliable for imbalanced datasets.
 
+END result- 
+<img width="1590" height="1198" alt="image" src="https://github.com/user-attachments/assets/d4ce9979-5125-48aa-9439-1194ee15c1b4" />
+
+
 ---
 
 ## 📌 Key Concepts
