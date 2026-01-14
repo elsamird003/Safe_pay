@@ -4,17 +4,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib import gridspec
 
-data = pd.read_csv("creditcard.csv")
+data = pd.read_csv("./envi/include/dataset/creditcard.csv")
 print(data.head())
 
 
-print(data.describe())
+print(data.describe()) 
 
 
 # Analyzing class distribution
 
 print("Analyzing class distribution - section below ")
-
+## separated two transtasion types 1 is valid and 0 is fraud 
 fraud = data[data['Class'] == 1]
 valid = data[data['Class'] == 0]
 outlierFraction = len(fraud)/float(len(valid))
@@ -23,23 +23,23 @@ print('Fraud Cases: {}'.format(len(data[data['Class'] == 1])))
 print('Valid Transactions: {}'.format(len(data[data['Class'] == 0])))
 
 
-##Exploring Transaction Amounts
-print("Amount details of the fraudulent transaction\n")
-fraud.Amount.describe()
+## Fraud Amount describe
+print("Amount details of the fraudulent transaction")
+print (fraud.Amount.describe())
+
+## details of valid transaction
+print("details of valid transaction")
+print(valid.Amount.describe())  ## From the output we observe that fraudulent transactions tend to have higher average amounts which is important in fraud detection.
+
+#Plotting Correlation Matrix
+# corrmat = data.corr()
+# fig = plt.figure(figsize = (12, 9))
+# sns.heatmap(corrmat, vmax = .8, square = True)
+# plt.show()
 
 
-print("details of valid transaction\n")
-valid.Amount.describe()
 
-##Plotting Correlation Matrix
-corrmat = data.corr()
-fig = plt.figure(figsize = (12, 9))
-sns.heatmap(corrmat, vmax = .8, square = True)
-plt.show()
-
-
-
-##Preparing Data for Modeling
+#Preparing Data for Modeling
 
 X = data.drop(['Class'], axis = 1)
 Y = data["Class"]
@@ -54,18 +54,18 @@ xTrain, xTest, yTrain, yTest = train_test_split(
         xData, yData, test_size = 0.2, random_state = 42)
 
 
-## Building and training the model
+# STEP 07 Building and training the model
 
 
 from sklearn.ensemble import RandomForestClassifier
 
-rfc = RandomForestClassifier()
+rfc = RandomForestClassifier(n_jobs=-1, verbose=2)
 rfc.fit(xTrain, yTrain)
 
 yPred = rfc.predict(xTest)
 
 
-## Evaluating the model
+ ## Evaluating the model
 
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef, confusion_matrix 
@@ -85,7 +85,7 @@ print(f"Matthews Correlation Coefficient: {mcc:.4f}")
 conf_matrix = confusion_matrix(yTest, yPred)
 plt.figure(figsize=(8, 6))
 sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues",
-            xticklabelså=['Normal', 'Fraud'], yticklabels=['Normal', 'Fraud'])
+            xticklabels=['Normal', 'Fraud'], yticklabels=['Normal', 'Fraud'])
 plt.title("Confusion Matrix")
 plt.xlabel("Predicted Class")
 plt.ylabel("True Class")
