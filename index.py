@@ -59,7 +59,7 @@ xTrain, xTest, yTrain, yTest = train_test_split(
 
 from sklearn.ensemble import RandomForestClassifier
 
-rfc = RandomForestClassifier()
+rfc = RandomForestClassifier(n_jobs=-1, verbose=2)
 rfc.fit(xTrain, yTrain)
 
 yPred = rfc.predict(xTest)
