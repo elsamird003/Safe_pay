@@ -1,22 +1,15 @@
-# Credit-card-detection#
+# SafePay#
 
 This project uses **supervised machine learning** to detect fraudulent credit card transactions from an **imbalanced dataset** of over 284,000 records. The dataset is preprocessed, analyzed, and used to train a **Random Forest classifier**, with performance evaluated using relevant metrics like ROC-AUC and confusion matrix.
 
 ---
 
 > Note: Your exact results may vary based on random seed or train-test split.
-> <img width="861" height="450" alt="Screenshot 2025-10-05 at 7 29 39 PM" src="https://github.com/user-attachments/assets/0be3a906-c7b0-4efe-a99c-c22b04124439" />
-
-
 - **Accuracy**: ~99.9% (but misleading due to imbalance)
 - **Precision (fraud class)**: ~84%
 - **Recall (fraud class)**: ~76%
 - **F1-score (fraud class)**: ~80%
 - **ROC-AUC**: ~0.97
-
- <img width="861" height="450" alt="Screenshot 2025-10-05 at 7 29 39 PM" src="https://github.com/user-attachments/files/23835189/Figure_01.pdf"/>
-  This project utilizes machine learning, specifically a Random Forest Classifier, to build a Credit Card Fraud Detection system. The core goal is to accurately distinguish between legitimate (Normal) and fraudulent (Fraud) transactions.
-
 Key Accomplishments Illustrated by the Confusion Matrix
 
 The confusion matrix provides a comprehensive view of the model's performance on the test data:
