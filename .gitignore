@@ -1,2 +1,5 @@
 creditcard.csv
 *.csv
+
+.venv/
+node_modules/

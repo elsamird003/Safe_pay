@@ -1,0 +1,4 @@
+cd to envi 
+then run this command .\bin\Activate.ps1  
+
+Before installing any dependencies on windows make sure you run this command first pip install certifi
